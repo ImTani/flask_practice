@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <br>
+    <div class="container">
+    <h1 class="Heading">Hi, {{ current_user.username }}!</h1>
+    <br>
+    <marquee class="Marquee">
+        Welcome to our template website for the Delhi Hackathon!
+    </marquee>
+    </div>
+
 {% endblock %}

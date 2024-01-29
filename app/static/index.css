@@ -1,0 +1,15 @@
+body{
+    background-image: url('assets/index_background.jpg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: repeat-y;
+}
+
+.Heading{
+    color: #ffe4c4;
+}
+
+.Marquee{
+    font-size: xx-large;
+    color: antiquewhite;   
+}
