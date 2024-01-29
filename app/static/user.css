@@ -1,0 +1,15 @@
+body{
+    background-image: url("assets/user_background.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: repeat-y;
+}
+
+.Table{
+    align-self: center;
+    padding-left: 10%;
+}
+
+.Heading{
+    color: dimgray;
+}

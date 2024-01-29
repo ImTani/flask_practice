@@ -27,18 +27,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                         </li>
-                        {% else %}
-
                         {% endif %}
-                            
+                        
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about_us') }}">About Us</a>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="static/assets/user_icon.png" class="User_Icon"></img><p class="User_Name">{{ current_user.username }}</p>
+                                {% if not current_user.is_anonymous %}
+                                <div class="User_Area">
+                                    <img src="{{ url_for('static', filename='assets/user_icon.png') }}" class="User_Icon"></img>
+                                    <p class="User_Name">{{ current_user.username }}</p>
+                                </div>
+                                {% endif %}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ url_for('user', username=current_user.username) }}">Your Profile</a></li>
                                 <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
-                                <li><hr class="dropdown-divider"></li>
+                                <!-- <li><hr class="dropdown-divider"></li> -->
                             </ul>
                         </li>
                     </ul>
