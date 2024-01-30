@@ -3,6 +3,7 @@
     --dark: #EADBC8;
     --blue: #102C57;
     --brown: #76453B;
+    --icon: url("assets/user_icon.png")
 }
 
 .User_Icon{
@@ -48,14 +49,14 @@
     color: var(--dark);
 }
 
-.flash_message{
+/* .flash_message{
     font-size: 2em;
     text-shadow: 0px 0px 20px navy;
     color: red;
     text-align: center;
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 1px;
-}
+} */
 
 .navbar-dark{
     background-color: var(--blue);
@@ -66,4 +67,8 @@
     background: var(--blue);
     
     background: linear-gradient(to right, var(--bisque), var(--blue));
+}
+
+.navbar-custom{
+    border: 2px #76453B;
 }

@@ -50,8 +50,9 @@
 }
 body{
     overflow: hidden;
-    background-image: url('./assets/bisque_background.png');
+    background-image: radial-gradient(circle, var(--blue), var(--bisque));
+    /* background-image: url('./assets/bisque_background.png');
     background-size: cover;
     background-position: top;
-    background-repeat: repeat-y;
+    background-repeat: repeat-y; */
 }
