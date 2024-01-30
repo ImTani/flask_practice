@@ -87,7 +87,5 @@ class Post(db.Model):
 
 @login.user_loader
 def load_user(id):
-    print(f"Loading user with ID: {id}")
     user = db.session.get(User, int(id))
-    print(f"Loaded User: {user}")
     return user

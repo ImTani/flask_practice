@@ -11,8 +11,6 @@ from app.forms import ContactForm, EditProfileForm, LoginForm, RegistrationForm
 @app.route("/index")
 @login_required
 def index():
-    print(f"Current User ID: {current_user.id}")
-    print(f"Current User Last Seen: {current_user.last_seen}")
     return render_template("index.html", current_user=current_user)
 
 

@@ -1,67 +1,82 @@
 body {
-    background-image: url("assets/edit_page.jpg");
+    background-image: url("assets/index_background.jpg");
+    background-size: cover;
     background-position: top;
     background-repeat: repeat-y;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
 }
 
-.mycontainer {
-    background-color: transparent; 
-    backdrop-filter: blur(3px); 
-    padding: 20px;
-    box-shadow: 0px 0px 45px 0px black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    max-width: 600px; 
-    margin: 0 auto; 
-    border-radius: 15px;
+.my_container {
     position: relative;
-    top: 70px;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    text-align: center;
+    background-color: var(--bisque);
+    padding: 20px;
+    display: inline-block; /* Adjust width to fit content */
+    border-radius: 5%;
+    max-width: 80%;
+    overflow: hidden;
+    margin-top: 4%;
+    box-shadow: 0px 0px 20px 0px black;
 }
 
-.img {
-    width: 150px; 
-    height: 150px;
+.photo {
     border-radius: 50%;
-    border: 2px solid rgb(183, 140, 88);
-    margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
+    padding: 5%;
 }
 
-h1 {
-    margin-bottom: 20px;
+.button {
+    display: block;
+    width: 100%; /* Make the button stretch to cover the whole width */
+    padding: 10px 0; /* Adjust padding to center content vertically */
+    background-color: var(--brown);
+    color: white;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 5px 0px var(--brown);
 }
+
+.button:hover {
+    background-color: var(--blue);
+}
+
 
 .form-group {
-    margin-bottom: 15px;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-.error {
-    color: red;
-}
-
-button[type="submit"]{
-    
-    color: white;
-    border: none;
-    padding: 0px;
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 10px;
-    position: relative;
-    left: 45%;
+    border: 1px solid #ccc;
+    resize: none;
 }
 
-label{
-    font-weight: bold;
+.form-label {
+    font-size: 1.1em;
+    text-align: left;
 }
-.only_about{
-    position: relative;
-    bottom: 50px;
-    
+
+/* Styles for larger screens */
+@media screen and (min-width: 768px) {
+    .Table {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .Heading {
+        padding-top: 2%;
+        text-align: center;
+        font-weight: bold;
+    }
 }

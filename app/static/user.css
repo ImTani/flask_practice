@@ -8,56 +8,78 @@ body {
 }
 
 .my_container {
-    align-self: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     background-color: var(--bisque);
     padding: 20px;
-    margin: 20px auto; /* Center the container horizontally */
-    display: inline-block; /* Adjust width to fit content */
-    border-radius: 30px;
-    max-width: 80%;
+    border-radius: 5%;
+    width: 30%;
     overflow: hidden;
-    margin-top: 100px;
+    margin-top: 5%;
     box-shadow: 0px 0px 20px 0px black;
 }
 
-.photo {
-    border-radius: 50%;
-    max-width: 100%;
-    height: auto;
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-/* Styles for larger screens */
-@media screen and (min-width: 768px) {
-    .Table {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        align-self: center;
-    }
+.profile-image {
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
 
-    .Heading {
-        padding-top: 2%;
-        text-align: center;
-        font-weight: bold;
-    }
+.photo {
+    width: 100%; /* Adjust the size as needed */
+    height: 100%; /* Adjust the size as needed */
+    object-fit: cover;
+}
 
+.username {
+    font-size: 2em; /* Increase font size */
+    font-weight: bold;
+}
 
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: var(--brown);
-        color: white;
-        text-decoration: none;
-        border: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-        box-shadow: 0px 0px 5px 0px var(--brown);
-    }
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left; /* Center-align the text */
+}
 
+.about-me {
+    margin-top: 20px;
+    font-size: 1.1em; /* Increase font size */
+    max-width: 70%; /* Set the maximum width to 100% */
+    overflow-wrap: break-word; /* Allow word wrapping within the container */
+}
 
-    .button:hover {
-        background-color: var(--blue);
-    }
+.last-seen {
+    margin-top: 10px;
+    color: #777;
+    font-size: 16px; /* Adjust font size */
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px; /* Increase padding */
+    margin-top: 30px;
+    font-size: 18px; /* Increase font size */
+    background-color: var(--brown);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px; /* Increase border radius */
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 8px 0px var(--brown); /* Increase box-shadow */
+}
+
+.button:hover {
+    background-color: var(--blue);
 }
