@@ -13,4 +13,4 @@ login = LoginManager(app)
 login.login_view = 'login' # type: ignore
 moment = Moment(app)
 
-from app import routes, models
+from app import routes, models, util

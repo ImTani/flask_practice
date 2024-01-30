@@ -1,11 +1,13 @@
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
-from app import app, db
+from app import app, db, util
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 import sqlalchemy as sa
 from app.models import User
 from app.forms import ContactForm, EditProfileForm, LoginForm, RegistrationForm
+
+colour = "F8F0E5"
 
 @app.route("/")
 @app.route("/index")
@@ -61,6 +63,7 @@ def user(username):
 
 @app.before_request
 def before_request():
+    util.replace_white_pixels(colour)
     if current_user.is_authenticated:
         current_user.last_seen = datetime.now(timezone.utc)
         db.session.commit()
