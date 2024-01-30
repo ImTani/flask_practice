@@ -32,7 +32,7 @@ class User(UserMixin, db.Model):
     about_me: so.Mapped[Optional[str]] = so.mapped_column(
         sa.String(140)
     )
-    
+
     last_seen: so.Mapped[Optional[datetime]] = so.mapped_column(
         default=lambda: datetime.now(timezone.utc)
     )
@@ -40,7 +40,6 @@ class User(UserMixin, db.Model):
     posts: so.WriteOnlyMapped['Post'] = so.relationship(
         back_populates='author'
     )
-
 
     def avatar(self, size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
@@ -88,4 +87,7 @@ class Post(db.Model):
 
 @login.user_loader
 def load_user(id):
-    return db.session.get(User, int(id))
+    print(f"Loading user with ID: {id}")
+    user = db.session.get(User, int(id))
+    print(f"Loaded User: {user}")
+    return user

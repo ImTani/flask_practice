@@ -11,6 +11,8 @@ from app.forms import ContactForm, EditProfileForm, LoginForm, RegistrationForm
 @app.route("/index")
 @login_required
 def index():
+    print(f"Current User ID: {current_user.id}")
+    print(f"Current User Last Seen: {current_user.last_seen}")
     return render_template("index.html", current_user=current_user)
 
 
@@ -57,11 +59,7 @@ def logout():
 @login_required
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.username == username))
-    posts = [
-        {'author': user, 'body': "Test Post #1"},
-        {'author': user, 'body': "Test Post #2"}
-    ]
-    return render_template('user.html', user=user, posts=posts)
+    return render_template('user.html', user=user)
 
 @app.before_request
 def before_request():
@@ -82,7 +80,7 @@ def edit_profile():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', title='Edit Profile', form=form)
+    return render_template('edit_profile.html', title='Edit Profile', form=form, user=current_user)
 
 @app.route('/about_us')
 def about_us():
