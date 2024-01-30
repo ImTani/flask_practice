@@ -88,7 +88,6 @@ def edit_profile():
 def about_us():
     return render_template('about_us.html', scroll="images")
 
-@login_required
 @app.route('/contact_us', methods=['GET', 'POST'])
 def contact_us():
     form = ContactForm()
@@ -98,5 +97,6 @@ def contact_us():
         q_email = form.email.data
         q_query = form.query.data
     elif request.method == 'GET':
-        form.email.data = current_user.email # db.session.scalar(sa.select(User.email).where(User.username == current_user.username))
+        if current_user.is_authenticated:
+            form.email.data = current_user.email # db.session.scalar(sa.select(User.email).where(User.username == current_user.username))
     return render_template('contact_us.html', form=form)
