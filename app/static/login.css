@@ -49,7 +49,8 @@
     padding-bottom: 5%;
 }
 body{
-    background-image: url('assets/bisque_background.jpg');
+    overflow: hidden;
+    background-image: url('./assets/bisque_background.png');
     background-size: cover;
     background-position: top;
     background-repeat: repeat-y;

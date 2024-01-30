@@ -1,3 +1,10 @@
+:root{
+    --bisque: #F8F0E5;
+    --dark: #EADBC8;
+    --blue: #102C57;
+    --brown: #76453B;
+}
+
 .User_Icon{
     width: 30px;
     height: 30px;
@@ -5,7 +12,7 @@
 }
 
 .User_Name{
-    color: bisque;
+    color: var(--bisque);
     font-size: 20px;
     margin-bottom: 0%;
 }
@@ -24,7 +31,12 @@
 }
 
 .dropdown-item{
-    color: bisque;
+    color: var(--bisque);
+}
+
+.navbar-brand{
+    font-size: 1.5em;
+    color: var(--blue);
 }
 
 .nav-item{
@@ -33,5 +45,25 @@
 
 .nav-link{
     align-self: center;
-    color: bisque;
+    color: var(--dark);
+}
+
+.flash_message{
+    font-size: 2em;
+    text-shadow: 0px 0px 20px navy;
+    color: red;
+    text-align: center;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+}
+
+.navbar-dark{
+    background-color: var(--blue);
+}
+
+.gradient-custom {
+    /* fallback for old browsers */
+    background: var(--blue);
+    
+    background: linear-gradient(to right, var(--bisque), var(--blue));
 }
