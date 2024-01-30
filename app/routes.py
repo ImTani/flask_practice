@@ -5,7 +5,7 @@ from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 import sqlalchemy as sa
 from app.models import User
-from app.forms import EditProfileForm, LoginForm, RegistrationForm
+from app.forms import ContactForm, EditProfileForm, LoginForm, RegistrationForm
 
 @app.route("/")
 @app.route("/index")
@@ -87,3 +87,16 @@ def edit_profile():
 @app.route('/about_us')
 def about_us():
     return render_template('about_us.html', scroll="images")
+
+@login_required
+@app.route('/contact_us', methods=['GET', 'POST'])
+def contact_us():
+    form = ContactForm()
+    if form.validate_on_submit():
+        q_first = form.first.data
+        q_last = form.last.data
+        q_email = form.email.data
+        q_query = form.query.data
+    elif request.method == 'GET':
+        form.email.data = current_user.email # db.session.scalar(sa.select(User.email).where(User.username == current_user.username))
+    return render_template('contact_us.html', form=form)

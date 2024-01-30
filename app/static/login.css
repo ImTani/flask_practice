@@ -1,3 +1,7 @@
+h1{
+    padding-bottom: 5%;
+}
+
 .form-container {
     display: flex;
     justify-content: center;
@@ -48,6 +52,7 @@
 .form-container{
     padding-bottom: 5%;
 }
+
 body{
     overflow: hidden;
     background-image: radial-gradient(circle, var(--blue), var(--bisque));
@@ -55,4 +60,33 @@ body{
     background-size: cover;
     background-position: top;
     background-repeat: repeat-y; */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column; /* Align buttons vertically */
+    align-items: left;
+}
+
+.submit-button {
+    margin-top: 10px; /* Add margin between the form groups and the buttons */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-group-toggle input {
+    margin-bottom: 0;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+.checkbox-label {
+    margin-left: 5px;
 }

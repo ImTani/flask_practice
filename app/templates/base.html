@@ -30,7 +30,11 @@
                         {% endif %}
                         
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('about_us') }}">About Us</a>
+                            <a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('about_us') }}">About Us</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -52,17 +56,32 @@
                 </div>
             </div>
         </nav>
-            
+        
         {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <br>
-            <li class="flash_message">{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const flashes = document.querySelector('.flashes');
+
+                        if (flashes) {
+                            // Show flashes
+                            flashes.classList.add('show');
+
+                            // Slide up after a delay
+                            setTimeout(() => {
+                                flashes.classList.add('slide-up');
+                            }, 5);
+                        }
+                    });
+                </script>
+            {% endif %}
         {% endwith %}
+
         {% block content %}{% endblock %}
 
         <!-- JavaScript Libraries -->

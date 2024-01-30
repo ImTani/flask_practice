@@ -3,7 +3,8 @@
     --dark: #EADBC8;
     --blue: #102C57;
     --brown: #76453B;
-    --icon: url("assets/user_icon.png")
+    --icon: url("assets/user_icon.png");
+    --navbar-height: 75px;
 }
 
 .User_Icon{
@@ -28,7 +29,8 @@
 }
 
 .dropdown-menu{
-    background-color: dimgray;
+    background-color: var(--blue);
+    /* background: linear-gradient(to bottom, var(--blue), var(--brown)); */
 }
 
 .dropdown-item{
@@ -63,12 +65,39 @@
 }
 
 .gradient-custom {
-    /* fallback for old browsers */
     background: var(--blue);
     
     background: linear-gradient(to right, var(--bisque), var(--blue));
 }
 
-.navbar-custom{
-    border: 2px #76453B;
+.flashes {
+    list-style: none;
+    position: fixed;
+    top: var(--navbar-height);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;  /* Adjust the width as needed */
+    max-width: 400px;  /* Set a maximum width if desired */
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;  /* Set the background color */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);  /* Add a box shadow for style */
+    z-index: 1000;  /* Ensure a high z-index to appear above other content */
+}
+
+.flashes.show {
+    top: var(--navbar-height);
+}
+
+@keyframes slideUp {
+    0% {
+        top: var(--navbar-height);
+    }
+    100% {
+        top: -100%;
+    }
+}
+
+.flashes.slide-up {
+    animation: slideUp 1.5s ease-in-out 4s forwards;  /* Adjust the duration and delay as needed */
 }

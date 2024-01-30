@@ -18,7 +18,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Register')
+    submit = SubmitField('Submit')
 
     def validate_username(self, username):
         user = db.session.scalar(sa.select(User).where(
@@ -36,4 +36,12 @@ class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About me', validators=[Length(min=0,
                                                             max = 140)])
+    submit = SubmitField('Submit')
+
+class ContactForm(FlaskForm):
+    first = StringField('First Name', validators=[DataRequired()])
+    last = StringField('Last Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    query =  TextAreaField('What can we help you with?', validators=[Length(min=40,
+                                                                            max=500)])
     submit = SubmitField('Submit')
