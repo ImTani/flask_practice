@@ -4,9 +4,7 @@
 <link rel="stylesheet" href="{{url_for('static', filename='user.css')}}">
 <div class="my_container">
     <div class="user-profile">
-        <div class="profile-image">
-            <img src="{{ user.avatar(128) }}" alt="User Photo" class="photo">
-        </div>
+        <img src="{{ user.avatar(128) }}" alt="User Photo" class="photo">
         <div class="profile-details">
             <h1 class="username">{{ user.username }}</h1>
             {% if user.about_me %}
