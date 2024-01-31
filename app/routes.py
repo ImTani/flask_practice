@@ -7,11 +7,8 @@ import sqlalchemy as sa
 from app.models import User
 from app.forms import ContactForm, EditProfileForm, LoginForm, RegistrationForm
 
-colour = "F8F0E5"
-
 @app.route("/")
 @app.route("/index")
-@login_required
 def index():
     return render_template("index.html", current_user=current_user)
 
@@ -63,7 +60,6 @@ def user(username):
 
 @app.before_request
 def before_request():
-    util.replace_white_pixels(colour)
     if current_user.is_authenticated:
         current_user.last_seen = datetime.now(timezone.utc)
         db.session.commit()

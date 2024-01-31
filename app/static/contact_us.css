@@ -1,64 +1,91 @@
-
-.form-container {
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 0px 20px 0px black;
-    border: 2px solid bisque;
-    display: flex;
-    position: relative;
-    top: 20px;
-    
-   
-    
-}
-body{
-    overflow: hidden;
-    background-image: url('assets/form_bg.jpg');
+body {
+    background-image: url("assets/index_background.jpg");
     background-size: cover;
     background-position: top;
     background-repeat: repeat-y;
+    margin: 0;
+    padding: 0;
 }
-.contact-form h1 {
+
+.page-container {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space elements evenly */
+}
+
+.content-left {
     text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+    padding: 2%;
+    flex: 1; /* Occupy remaining space */
+}
+
+.my-container {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: var(--bisque);
+    padding: 2%;
+    display: inline-block; /* Adjust width to fit content */
+    border-radius: 5%;
+    max-width: 45%; /* Adjust the maximum width for larger screens */
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 0px black;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-.form-group label {
-    font-weight: bold;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
+.form-control {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    font-size: 16px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.form-label {
+    font-size: 1.1em;
+    text-align: left;
 }
 
 .buttons {
     text-align: center;
 }
 
-.submit-button {
-    background-color: #007bff;
-    color: #fff;
+.button {
+    display: block;
+    width: 100%; /* Make the button stretch to cover the whole width */
+    padding: 10px 0; /* Adjust padding to center content vertically */
+    background-color: var(--brown);
+    color: white;
+    text-decoration: none;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 5px 0px var(--brown);
 }
 
-.submit-button:hover {
-    background-color: #0056b3;
+.button:hover {
+    background-color: var(--blue);
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 767px) {
+    .my-container {
+        left: 50%; /* Center the container on smaller screens */
+        max-width: 90%; /* Adjust the maximum width for smaller screens */
+    }
+
+    .form-group {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .button {
+        margin-top: 10%;
+    }
 }

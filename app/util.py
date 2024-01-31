@@ -1,8 +1,11 @@
 from PIL import Image
 
-def replace_white_pixels(new_color_hex):
-    input_path = "app/static/assets/user_icon_base.png"
-    output_path = "app/static/assets/user_icon.png"
+
+primary_colour = "F8F0E5"
+secondary_colour = "102C57"
+
+
+def replace_white_pixels(input_path, output_path, new_color_hex):
 
     img = Image.open(input_path)
 
@@ -20,3 +23,7 @@ def replace_white_pixels(new_color_hex):
     new_img.putdata(new_img_data)
 
     new_img.save(output_path)
+
+def update_images():
+    replace_white_pixels("app/static/assets/user_icon_base.png", "app/static/assets/user_icon.png", primary_colour)
+    replace_white_pixels("app/static/assets/home_icon_base.png", "app/static/assets/home_icon.png", secondary_colour)

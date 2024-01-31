@@ -7,7 +7,7 @@
     --navbar-height: 75px;
 }
 
-.User_Icon{
+.User_Icon, .home-icon{
     width: 30px;
     height: 30px;
     margin-right: 10px;

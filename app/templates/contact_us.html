@@ -1,58 +1,56 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact_us.css')}}">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='contact_us.css')}}">
+    <div class="page-container">
 
-    <div class="form-container">
-   
-        <form action="" method="post" class="contact-form">
-                 
-            <h1>
-                Contact Us
-            </h1>
+        <div class="my-container">
+            <form action="" method="post" class="contact-form">
+                {{ form.hidden_tag() }}
 
-            {{ form.hidden_tag() }}
-            
-            <div class="form-group">
-                {{ form.first.label }}<br>
-                {{ form.first(size=32) }}<br>
-                {% for error in form.first.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </div>
+                <div class="form-group">
+                    {{ form.first.label(class="form-label") }}<br>
+                    {{ form.first(size=32, class="form-control") }}
+                    {% for error in form.first.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
 
-            <div class="form-group">
-                {{ form.last.label }}<br>
-                {{ form.last(size=32) }}<br>
-                {% for error in form.last.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </div>
+                <div class="form-group">
+                    {{ form.last.label(class="form-label") }}<br>
+                    {{ form.last(size=32, class="form-control") }}
+                    {% for error in form.last.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
 
-            <div class="form-group">
-                {{ form.email.label }}<br>
-                {{ form.email(size=32) }}<br>
-                {% for error in form.email.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-label") }}<br>
+                    {{ form.email(size=32, class="form-control") }}
+                    {% for error in form.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
 
-            <div class="form-group">
-                {{ form.query.label }}<br>
-                {{ form.query(cols=50, rows=4) }}<br>
-                {% for error in form.query.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </div>
+                <div class="form-group">
+                    {{ form.query.label(class="form-label") }}<br>
+                    {{ form.query(cols=50, rows=4, class="form-control") }}
+                    {% for error in form.query.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
 
-            <div class="buttons">
-                {{ form.submit(class="btn btn-primary submit-button") }}  
-            </div>
-        </form>
-    
+                <div class="buttons">
+                    {{ form.submit(class="btn btn-primary submit-button") }}  
+                </div>
+            </form>
+        </div>
+        <div class="content-left">Contact
+            <br>
+            <h2>Cin</h2>
+            <p>This is some text on the left side.</p>
+        </div>
     </div>
 
 {% endblock %}
-    
