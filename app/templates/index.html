@@ -4,15 +4,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <br>
     <div class="container">
-    {% if current_user.is_authenticated %}
-    <h1 class="Heading">Hi, {{ current_user.username }}!</h1>
-    {% else %}
-    <h1 class="Heading">Hi, Guest User!</h1>
-    {% endif %}
-    <br>
-    <marquee class="Marquee">
-        Welcome to our template website for the Delhi Hackathon!
-    </marquee>
+        {% if current_user.is_authenticated %}
+        <h1 class="Heading">Hi, {{ current_user.username }}!</h1>
+        {% else %}
+        <h1 class="Heading">Hi, Guest User!</h1>
+        {% endif %}
+        <br>
+        <marquee class="Marquee">
+            Welcome to our template website for the Delhi Hackathon!
+        </marquee>
     </div>
 
 {% endblock %}

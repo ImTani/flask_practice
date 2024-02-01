@@ -13,6 +13,6 @@ body{
 
 .Marquee{
     text-shadow: 0px 0px 20px white, 0px 0px 10px var(--brown);
-    font-size: xx-large;
+    font-size: 2em;
     color: var(--bisque);   
 }

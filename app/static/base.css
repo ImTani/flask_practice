@@ -7,17 +7,34 @@
     --navbar-height: 75px;
 }
 
-.User_Icon, .home-icon{
+.home-icon{
+    width: 30px;
+    height: 30px;
+}
+
+.User_Icon{
     width: 30px;
     height: 30px;
     margin-right: 10px;
 }
 
 .User_Name{
-    color: var(--bisque);
-    font-size: 20px;
+    color: var(--dark);
+    font-size: 1.2em;
     margin-bottom: 0%;
-    
+}
+
+.bi-house-fill{
+    color: var(--blue);
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.bi-person-circle{
+    color: var(--dark);
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
 }
 
 .User_Area{
@@ -31,7 +48,7 @@
 
 .dropdown-menu{
     background-color: var(--blue);
-   
+    /* background: linear-gradient(to bottom, var(--blue), var(--brown)); */
 }
 
 .dropdown-item{
@@ -52,15 +69,6 @@
     color: var(--dark);
 }
 
-/* .flash_message{
-    font-size: 2em;
-    text-shadow: 0px 0px 20px navy;
-    color: red;
-    text-align: center;
-    -webkit-text-stroke-color: black;
-    -webkit-text-stroke-width: 1px;
-} */
-
 .navbar-dark{
     background-color: var(--blue);
 }
@@ -77,13 +85,13 @@
     top: var(--navbar-height);
     left: 50%;
     transform: translateX(-50%);
-    width: 50%; 
-    max-width: 400px; 
+    width: 50%;  /* Adjust the width as needed */
+    max-width: 400px;  /* Set a maximum width if desired */
     text-align: center;
     padding: 10px;
-    background-color: #fff;  
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); 
-    z-index: 1000; 
+    background-color: #fff;  /* Set the background color */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);  /* Add a box shadow for style */
+    z-index: 1000;  /* Ensure a high z-index to appear above other content */
 }
 
 .flashes.show {
@@ -100,34 +108,65 @@
 }
 
 .flashes.slide-up {
-    animation: slideUp 1.5s ease-in-out 4s forwards; 
+    animation: slideUp 1.5s ease-in-out 4s forwards;  /* Adjust the duration and delay as needed */
 }
-.sidebar {
+
+/* Add this style for the mobile sidebar */
+.mobile-sidebar {
     position: fixed;
-    top: 0;
-    left: -250px;
+    top: 8.5%;
+    right: -45%; /* Set initial position off-screen from the right */
+    width: 45%;
     height: 100%;
-    width: 250px;
-    background-color: #333;
-    padding-top: 60px;
-    transition: all 0.3s;
+    background: linear-gradient(to bottom, var(--dark), var(--brown));
+    border-left: 2px solid var(--brown); /* Change to border-left for a right sidebar */
+    z-index: 1000;
+    transition: right 0.3s ease; /* Change left to right for the transition effect */
 }
-.sidebar.active {
-    left: 0;
-}
-.sidebar ul {
+
+.mobile-sidebar ul {
     list-style: none;
-    padding: 0;
+    padding: 20px;
 }
-.sidebar ul li {
-    padding: 8px 15px;
-    border-bottom: 1px solid #222;
-    color: #fff;
-}
-.sidebar ul li a {
-    color: #fff;
+
+.mobile-sidebar a {
+    padding: 5%;
     text-decoration: none;
+    color: var(--blue);
+    font-size: 1.2em;
 }
-.navbar-toggler-icon {
-    color: #fff;
+
+.mobile-sidebar-item{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-bottom: 1px solid var(--brown);
 }
+
+.mobile-sidebar-user-area{
+    color: var(--blue);
+}
+
+
+/* @media screen and (min-resolution: 192dpi){
+
+    .container{
+        min-width: 90vw;
+    }
+
+    .navbar-nav {
+        display: none;
+    }
+
+    .navbar-toggler{
+        font-size: 3em;
+    }
+
+    .mobile-sidebar.show {
+        right: 0;
+    }
+
+    .bi-house-fill{
+        width: 3em;
+        height: 3em;
+    }
+}*/

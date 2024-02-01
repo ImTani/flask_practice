@@ -1,6 +1,8 @@
-
 <!doctype html>
 <html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <head>
         {% if title %}
         <title>{{ title }} - microblog</title>
@@ -9,29 +11,22 @@
         {% endif %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
-    
-       
     </head>
     <body>
-    
-        <div class="sidebar">
-       
-            <ul>
-                <li><a class="nav-link" href="{{ url_for('register') }}">Sign Up</a></li>
-                <li><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
-                <li><a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a></li>
-                <li><a class="nav-link" href="{{ url_for('about_us') }}">About Us</a></li>
-            </ul>
-        </div>
-
-     
+        <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark gradient-custom border-bottom border-light">
             <div class="container">
-                <button class="navbar-toggler" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
+                <a class="navbar-brand" href="{{ url_for('index') }}">
+                    <!-- <img src="{{ url_for('static', filename='assets/home_icon.png') }}" class="home-icon"></img> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+                        <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
+                    </svg>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleSidebar()">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
-                
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         
@@ -56,35 +51,86 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {% if not current_user.is_anonymous %}
                                 <div class="User_Area">
-                                    <img src="{{ url_for('static', filename='assets/user_icon.png') }}" class="User_Icon"></img>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                      </svg>
+                                    <!-- <img src="{{ url_for('static', filename='assets/user_icon.png') }}" class="User_Icon"></img> -->
                                     <p class="User_Name">{{ current_user.username }}</p>
                                 </div>
                                 {% endif %}
                             </a>
-                            <ul class="dropdown-menu sidebar" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ url_for('user', username=current_user.username) }}">Your Profile</a></li>
                                 <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
-                                
+                                <!-- <li><hr class="dropdown-divider"></li> -->
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        
-     
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const toggleButton = document.querySelector('.navbar-toggler');
-                const sidebar = document.querySelector('.sidebar');
 
-             
-                toggleButton.addEventListener('click', function() {
-                  
-                    sidebar.classList.toggle('active');
-                });
-            });
+        <!-- Sidebar for Mobile -->
+        <div class="mobile-sidebar">
+            <ul>
+                {% if current_user.is_anonymous %}
+                <li class="mobile-sidebar-item"><a href="{{ url_for('register') }}">Sign Up</a></li>
+                <li class="mobile-sidebar-item"><a href="{{ url_for('login') }}">Login</a></li>
+                {% else %}
+                <li>
+                    <div class="mobile-sidebar-user-area">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                          </svg>
+                        <!-- <img src="{{ url_for('static', filename='assets/user_icon.png') }}" class="User_Icon"></img> -->
+                        <p class="User_Name">{{ current_user.username }}</p>
+                    </div>
+                </li>
+                {% endif %}
+                <li class="mobile-sidebar-item"><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+                <li class="mobile-sidebar-item"><a href="{{ url_for('about_us') }}">About Us</a></li>
+            </ul>
+        </div>
+
+        <script>
+            function toggleSidebar() {
+                var sidebar = document.querySelector('.mobile-sidebar');
+                sidebar.classList.toggle('show');
+            }
         </script>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const flashes = document.querySelector('.flashes');
+
+                        if (flashes) {
+                            // Show flashes
+                            flashes.classList.add('show');
+
+                            // Slide up after a delay
+                            setTimeout(() => {
+                                flashes.classList.add('slide-up');
+                            }, 5);
+                        }
+                    });
+                </script>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+
+        <!-- JavaScript Libraries -->
+        {{ moment.include_moment() }}
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     </body>
 </html>
