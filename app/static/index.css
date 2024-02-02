@@ -1,8 +1,18 @@
 body{
+    
     background-image: url('assets/index_background.jpg');
     background-size: cover;
-    background-position: top;
-    background-repeat: repeat-y;
+    background-position: center;
+    height: 10px; /* Adjust the height of the background image as needed */
+    width: 100%;
+    
+
+    background-repeat: no-repeat;
+}
+.horizontal-line{
+    border-top: 1px solid black;
+    margin-top: 20px; /* Adjust margin as needed */
+    margin-bottom: 20px; /* Adjust margin as needed */
 }
 
 .Heading{
@@ -15,4 +25,32 @@ body{
     text-shadow: 0px 0px 20px white, 0px 0px 10px var(--brown);
     font-size: 2em;
     color: var(--bisque);   
+}
+
+.line{
+    margin-top: 400px;
+    border: none;
+    height: 5px;
+    border-radius: 8px; 
+    background-color: #000; 
+    width: 90%;
+    margin-left: 70px;
+
+   
+    
+}
+@media screen and (max-width: 450px) {
+    body {
+        height: 350px;
+    }
+    .line{
+        margin-top: 150px;
+        height: 3px;
+        width: 290px;
+        margin-left: 35px;
+        
+        
+    }
+    
+    
 }

@@ -56,11 +56,11 @@ h1{
 
 body{
     overflow: hidden;
-    background-image: radial-gradient(circle, var(--blue), var(--bisque));
-    /* background-image: url('./assets/bisque_background.png');
+    background-image: url('assets/register_background.jpg');
+    
     background-size: cover;
     background-position: top;
-    background-repeat: repeat-y; */
+    background-repeat: repeat-y;
 }
 
 .buttons {
